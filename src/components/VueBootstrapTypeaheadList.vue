@@ -56,6 +56,10 @@ export default {
     minMatchingChars: {
       type: Number,
       default: 2
+    },
+    skipMatchFilter: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -79,6 +83,10 @@ export default {
     matchedItems() {
       if (this.query.length === 0 || this.query.length < this.minMatchingChars) {
         return []
+      }
+
+      if (this.skipMatchFilter) {
+        return this.data.slice(0, this.maxMatches)
       }
 
       const re = new RegExp(this.escapedQuery, 'gi')

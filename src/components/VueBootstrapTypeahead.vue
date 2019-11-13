@@ -34,6 +34,7 @@
       :text-variant="textVariant"
       :maxMatches="maxMatches"
       :minMatchingChars="minMatchingChars"
+      :skipMatchFilter="skipMatchFilter"
       @hit="handleHit"
     >
       <!-- pass down all scoped slots -->
@@ -91,6 +92,10 @@ export default {
     minMatchingChars: {
       type: Number,
       default: 2
+    },
+    skipMatchFilter: {
+      type: Boolean,
+      default: false
     },
     placeholder: String,
     prepend: String,
